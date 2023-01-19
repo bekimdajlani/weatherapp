@@ -1,7 +1,4 @@
 import data from './cities.json' assert{type:'json'};
-// localStorage.setItem('cities.json',JSON.stringify());
-// console.log(localStorage);
-// variables for api change
 let latitude, longitude, mainUrl;
 mainUrl = `https://api.open-meteo.com/v1/forecast?latitude=41.18&longitude=19.56&hourly=temperature_2m,precipitation,cloudcover,windspeed_10m&daily=sunrise,sunset&timezone=auto`;
 // function to change city by longitude and latitude
@@ -111,10 +108,10 @@ searchedCity.addEventListener('input',() =>{
       time.forEach((element, index) => {
         let e = new Date(element);
         
-        if (// data 11
+        if (
         (currenTime.getDate() == e.getDate()) 
         && 
-        (currenTime.getHours() == e.getHours())//ora 17
+        (currenTime.getHours() == e.getHours())
         ) {
           indexStart = index;
           endIndex = indexStart + 24;
