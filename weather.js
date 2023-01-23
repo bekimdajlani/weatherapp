@@ -45,6 +45,8 @@ searchedCity.addEventListener('input',() =>{
   
   let button = document.querySelector('.location-button');
   let cityNAme = document.querySelector('.citynames');
+  cityDisplay.style.opacity = '0';
+  cityNAme.style.opacity = '0';
   window.addEventListener('click',e =>{if(button.contains(e.target)){
     button.style.width = '75%';
     button.placeholder = '';
