@@ -1,17 +1,18 @@
-import data from './cities.json' assert{type:'json'};
+let city = JSON.parse(localStorage.getItem('cities'));
+console.log(typeof(city));
 let latitude, longitude, mainUrl;
 mainUrl = `https://api.open-meteo.com/v1/forecast?latitude=41.18&longitude=19.56&hourly=temperature_2m,precipitation,cloudcover,windspeed_10m&daily=sunrise,sunset&timezone=auto`;
 // function to change city by longitude and latitude
 function changeCity(){
   mainUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,precipitation,cloudcover,windspeed_10m&daily=sunrise,sunset&timezone=auto`;
 };
-let rainyday = "url(./weatherAppPictures/rainglass.jpg) ";
-let nightStars = "url(./weatherAppPictures/night-sky-stars.jpg)";
-let nightSky = "url(./weatherAppPictures/night-sky.jpg)";
-let dayBlueClouds = "url(./weatherAppPictures/cloud-sky-high.jpg)";
-let dayOrangeClouds = "url(./weatherAppPictures/Clouds-background.jpg)";
+let rainyday = 'url(./weatherAppPictures/rainglass.jpg)';
+let nightStars = 'url(./weatherAppPictures/night-sky-stars.jpg)';
+let nightSky = 'url(./weatherAppPictures/night-sky.jpg)';
+let dayBlueClouds = 'url(./weatherAppPictures/cloud-sky-high.jpg)';
+let dayOrangeClouds = 'url(./weatherAppPictures/Clouds-background.jpg)';
 // cities array to display
-let cities = data.map((element) => {let e = `${element.city}, ${element.state}`;return e});
+let cities = city.map((element) => {let e = `${element.city}, ${element.state}`;return e});
 let cityDisplay = document.querySelector('.cityDisplay');
 // function to remove the first 24 hourly temperatures
 function RemoveElements(){
@@ -62,19 +63,19 @@ searchedCity.addEventListener('input',() =>{
   }});
   function AddElement (temperature, temperature_2m, hour ,rain,precipitation){
     
-    const newLI = document.createElement("li");
-    newLI.className = "flex-container";
+    const newLI = document.createElement('li');
+    newLI.className = 'flex-container';
     
-    const newSpan = document.createElement("span");
-    newSpan.className = "hour";
+    const newSpan = document.createElement('span');
+    newSpan.className = 'hour';
     newSpan.textContent = (`${hour}`);
     
-    const newSpan1 = document.createElement("span");
-    newSpan1.className = "temperature";
+    const newSpan1 = document.createElement('span');
+    newSpan1.className = 'temperature';
     newSpan1.textContent = (`${temperature}${temperature_2m}`);
     
-    const newSpan2 = document.createElement("span");
-    newSpan2.className="rain";
+    const newSpan2 = document.createElement('span');
+    newSpan2.className='rain';
     newSpan2.textContent = (`${rain}${precipitation}`);
     
     newLI.appendChild(newSpan);
@@ -144,19 +145,19 @@ searchedCity.addEventListener('input',() =>{
       let dayTime = currenTime.getHours()*60 + currenTime.getMinutes();
       // changing the background images according to daylight time
       if((dayTime > sunset[0]) || (dayTime < sunRise[0])){
-        document.getElementById("bgimg").style.backgroundImage = nightSky;
-        document.querySelector("body").style.backgroundImage = nightStars;
-        document.querySelector("body").style.backgroundSize = "cover";
+        document.getElementById('bgimg').style.backgroundImage = nightSky;
+        document.querySelector('body').style.backgroundImage = nightStars;
+        document.querySelector('body').style.backgroundSize = 'cover';
       }else{
-        document.querySelector("body").style.backgroundImage = dayBlueClouds;
-        document.getElementById("bgimg").style.backgroundImage = dayOrangeClouds;
-        document.querySelector("body").style.backgroundSize = "cover";
+        document.querySelector('body').style.backgroundImage = dayBlueClouds;
+        document.getElementById('bgimg').style.backgroundImage = dayOrangeClouds;
+        document.querySelector('body').style.backgroundSize = 'cover';
       }
       //get hh:mm from sunrise & sunset 
       let morning = daily.sunrise[0].substring(11,16);
       let evening = daily.sunset[0].substring(11,16);
       //display daily sunrise and sunset
-      document.getElementById("sunset0").innerHTML = (`<h3>Sunrise at ${morning}</h3>Sunset at ${evening}`);
+      document.getElementById('sunset0').innerHTML = (`<h3>Sunrise at ${morning}</h3>Sunset at ${evening}`);
       
       // create an array to push the iterated arrays
       let days = [];
@@ -174,8 +175,8 @@ searchedCity.addEventListener('input',() =>{
         days.push(day);
       }
       // array for the week days (we get 0-6 numbers from getDay) and one for the months
-      const week = ["Sun","Mon","Tue","Wed","Thur","Fri","Sat"];
-      const month = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+      const week = ['Sun','Mon','Tue','Wed','Thur','Fri','Sat'];
+      const month = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'];
       //display Day
       document.getElementById('today').innerHTML = week[currenTime.getDay()];
       document.getElementById('day0').innerHTML = week[(currenTime.getDay() + 1)%7];
@@ -183,7 +184,7 @@ searchedCity.addEventListener('input',() =>{
       document.getElementById('day2').innerHTML = week[(currenTime.getDay() + 3)%7];
       document.getElementById('day3').innerHTML = week[(currenTime.getDay() + 4)%7];
       // display Month
-      document.getElementById("date-num").innerHTML = `${month[currenTime.getMonth()]}, ${currenTime.getDate()}`;
+      document.getElementById('date-num').innerHTML = `${month[currenTime.getMonth()]}, ${currenTime.getDate()}`;
       
       let todayHours = [];
       let today = days[0].dayI;
@@ -194,20 +195,20 @@ searchedCity.addEventListener('input',() =>{
       // use for loop and if stament for finding the data correspoding to the hour
       for (let i=0; i < todayHours.length; i++) {
         if(currenTime.getHours() == todayHours[i]) {
-          document.getElementById("today-temp").innerHTML=(`${days[0].temp[i]} ${hourly_units.temperature_2m}`)
-          document.getElementById("prc-value").innerHTML = (`${days[0].prc[i]} ${hourly_units.precipitation}`)
-          document.getElementById("wnd-value").innerHTML = (`${days[0].wnd[i]} ${hourly_units.windspeed_10m}`)
-          document.getElementById("clouds").innerHTML = (`${days[0].cloud[i]} ${hourly_units.cloudcover}`)
-          document.getElementById("day0-temp").innerHTML=(`${days[1].temp[i]} ${hourly_units.temperature_2m}`)
-          document.getElementById("day1-temp").innerHTML=(`${days[2].temp[i]} ${hourly_units.temperature_2m}`)
-          document.getElementById("day2-temp").innerHTML=(`${days[3].temp[i]} ${hourly_units.temperature_2m}`)
-          document.getElementById("day3-temp").innerHTML=(`${days[4].temp[i]} ${hourly_units.temperature_2m}`)
-          document.getElementById("day1Prc").innerHTML=(`${days[1].prc[i]} ${hourly_units.precipitation}`)
-          document.getElementById("day2Prc").innerHTML=(`${days[2].prc[i]} ${hourly_units.precipitation}`)
-          document.getElementById("day3Prc").innerHTML=(`${days[3].prc[i]} ${hourly_units.precipitation}`)
-          document.getElementById("day4Prc").innerHTML=(`${days[4].prc[i]} ${hourly_units.precipitation}`)
+          document.getElementById('today-temp').innerHTML=(`${days[0].temp[i]} ${hourly_units.temperature_2m}`)
+          document.getElementById('prc-value').innerHTML = (`${days[0].prc[i]} ${hourly_units.precipitation}`)
+          document.getElementById('wnd-value').innerHTML = (`${days[0].wnd[i]} ${hourly_units.windspeed_10m}`)
+          document.getElementById('clouds').innerHTML = (`${days[0].cloud[i]} ${hourly_units.cloudcover}`)
+          document.getElementById('day0-temp').innerHTML=(`${days[1].temp[i]} ${hourly_units.temperature_2m}`)
+          document.getElementById('day1-temp').innerHTML=(`${days[2].temp[i]} ${hourly_units.temperature_2m}`)
+          document.getElementById('day2-temp').innerHTML=(`${days[3].temp[i]} ${hourly_units.temperature_2m}`)
+          document.getElementById('day3-temp').innerHTML=(`${days[4].temp[i]} ${hourly_units.temperature_2m}`)
+          document.getElementById('day1Prc').innerHTML=(`${days[1].prc[i]} ${hourly_units.precipitation}`)
+          document.getElementById('day2Prc').innerHTML=(`${days[2].prc[i]} ${hourly_units.precipitation}`)
+          document.getElementById('day3Prc').innerHTML=(`${days[3].prc[i]} ${hourly_units.precipitation}`)
+          document.getElementById('day4Prc').innerHTML=(`${days[4].prc[i]} ${hourly_units.precipitation}`)
           if (days[0].prc[i] > 0) {
-            document.getElementById("bgimg").style.backgroundImage = rainyday;
+            document.getElementById('bgimg').style.backgroundImage = rainyday;
           }
           break;
         } 

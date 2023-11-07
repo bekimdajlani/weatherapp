@@ -1,4 +1,4 @@
- [
+let data = [
     {
       "state": "Afghanistan",
       "city": "Kabul",
@@ -2789,4 +2789,9 @@
       "lat": -17.8177778,
       "lng": 31.0447216
     }
-  ]
+  ];
+
+  function storeToLocalStorage () {
+    localStorage.setItem('cities', JSON.stringify(data));
+  }
+  storeToLocalStorage();
