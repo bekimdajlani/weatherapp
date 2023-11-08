@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,40 +9,52 @@
   <link rel="stylesheet" href="./weather.css" type="text/css">
   <title>MyWeather</title>
 </head>
+
 <body>
+  <div id="error-container" style="display: none;">
+    <p id="error-message" style="font-weight: bold; color: red;">This is an error message.</p>
+  </div>
   <div class="container" id="bgimg">
     <div class="weather-side">
       <div class="weather-gradient"></div>
       <div class="date-container">
-        <h2 class="date-dayname" id="today">Tuesday</h2><span class="date-day" id="date-num">15</span><span class="location">Tirana,</br>Albania</span>
+        <h2 class="date-dayname" id="today">Tuesday</h2><span class="date-day" id="date-num">15</span><span
+          class="location">Tirana,</br>Albania</span>
       </div>
       <div class="weather-container">
         <h1 class="weather-temp" id="today-temp">°C</h1>
         <h3 class="weather-desc" id="sunset0">Sunset</h3>
       </div>
-      
+
     </div>
     <div class="info-side">
       <div class="today-info-container">
         <div class="today-info">
-          <div class="precipitation"> <span class="title">PRECIPITATION</span><span class="value" id="prc-value">7 %</span>
+          <div class="precipitation"> <span class="title">PRECIPITATION</span><span class="value" id="prc-value">7
+              %</span>
             <div class="clear"></div>
           </div>
           <div class="humidity"> <span class="title">CLOUDCOVER</span><span class="value" id="clouds">34 %</span>
             <div class="clear"></div>
           </div>
           <div class="wind"> <span class="title">WIND</span><span class="value" id="wnd-value">0 km/h</span>
-            
+
           </div>
-          
+
         </div>
-      </div>  
+      </div>
       <div class="week-container">
         <ul class="week-list">
-          <li class="active"><p class="day-icon" id="day1Prc">-</p><span class="day-name" id="day0">--</span><span class="day-temp" id="day0-temp">-</span></li>
-          <li><span class="day-icon" id="day2Prc">-</span><span class="day-name" id="day1">--</span><span class="day-temp" id="day1-temp">-</span></li>
-          <li><span class="day-icon" id="day3Prc">-</span><span class="day-name" id="day2">--</span><span class="day-temp" id="day2-temp">-</span></li>
-          <li><span class="day-icon" id="day4Prc">-</span><span class="day-name" id="day3">--</span><span class="day-temp" id="day3-temp">-</span></li>
+          <li class="active">
+            <p class="day-icon" id="day1Prc">-</p><span class="day-name" id="day0">--</span><span class="day-temp"
+              id="day0-temp">-</span>
+          </li>
+          <li><span class="day-icon" id="day2Prc">-</span><span class="day-name" id="day1">--</span><span
+              class="day-temp" id="day1-temp">-</span></li>
+          <li><span class="day-icon" id="day3Prc">-</span><span class="day-name" id="day2">--</span><span
+              class="day-temp" id="day2-temp">-</span></li>
+          <li><span class="day-icon" id="day4Prc">-</span><span class="day-name" id="day3">--</span><span
+              class="day-temp" id="day3-temp">-</span></li>
         </ul>
       </div>
       <div class="location-container">
@@ -59,6 +72,7 @@
   </div>
   <div class="hline"></div>
   <script src="./cities.js"></script>
-  <script  src="weather.js"></script>
+  <script src="weather.js"></script>
 </body>
+
 </html>
