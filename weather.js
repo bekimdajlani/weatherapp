@@ -120,10 +120,8 @@ async function GetWeather(latitude, longitude) {
 
   } catch (error) {
     console.error("Error fetching weather data:", error);
-    const errorContainer = document.getElementById("error-container");
     const errorMessage = document.getElementById("error-message");
     errorMessage.textContent = "You need to allow location services to get weather!Try reload and click yes for location";
-    errorContainer.style.display = "block";
   }
   // create an object to extract the data just with the arrrays
   const { hourly } = data;
