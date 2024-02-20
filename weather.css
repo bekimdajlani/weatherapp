@@ -1,320 +1,263 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap");
 
-
-
-* {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	line-height: 1.25em;
-}
-
 .value {
-	font-weight: 600;
-	color: rgb(160, 156, 156);
-}
-
-.clear {
-	clear: both;
+  font-weight: 600;
+  color: rgb(160, 156, 156);
 }
 
 body {
-	margin: 0;
-	width: 100%;
-	height: 100vh;
-	font-family: "Montserrat", sans-serif;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	flex-direction: column;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	background-size: auto;
-	object-fit: fill;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
-	border-radius: 25px;
-	background-size: cover;
-	color: #ffffff;
-	height: 400px;
-	display: flex;
-	flex-direction: row;
+  border-radius: 25px;
+  background-size: cover;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
 }
 
 .weather-side {
-	height: 100%;
-	border-radius: 25px;
-	width: 300px;
-	-webkit-transition: -webkit-transform 300ms ease;
-	transition: -webkit-transform 300ms ease;
-	-o-transition: transform 300ms ease;
-	transition: transform 300ms ease;
-	transition: transform 300ms ease, -webkit-transform 300ms ease;
-	-webkit-transform: translateZ(0) scale(1.02) perspective(1000px);
-	transform: translateZ(0) scale(1.02) perspective(1000px);
-	display: flex;
-	flex-direction: column;
-}
-
-.weather-side:hover {
-	-webkit-transform: scale(1.1) perspective(1500px) rotateY(10deg);
-	transform: scale(1.1) perspective(1500px) rotateY(10deg);
-}
-
-.weather-gradient {
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background-image: linear-gradient(135deg, #72edf2 10%, #5151e5 100%);
-	border-radius: 25px;
-	opacity: 0.2;
+  height: 100%;
+  border-radius: 25px;
+  width: 18.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .date-container {
-	position: absolute;
-	top: 25px;
-	left: 25px;
-	display: flex;
-	flex-direction: column;
-}
-
-.date-dayname {
-	margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 10%;
 }
 
 .weather-container {
-	display: flex;
-	flex-direction: column;
-	padding: 5%;
-	position: absolute;
-	margin-top: 60%;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
 }
 
 .weather-temp {
-	margin: 0;
-	font-weight: 700;
-	font-size: 4em;
+  font-weight: 700;
+  font-size: 4em;
 }
 
 .weather-desc {
-	margin: 0;
+  margin: 0;
 }
 
 .info-side {
-	height: 100%;
-	padding-top: 25px;
+  height: 100%;
+  padding-top: 25px;
 }
 
 .today-info {
-	padding: 15px;
-	margin: 0 25px 25px 25px;
-	box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
-	border-radius: 10px;
+  padding: 15px;
+  margin: 0 25px 25px 25px;
+  box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 }
 
-.today-info>div:not(:last-child) {
-	margin: 0 0 10px 0;
+.today-info > div:not(:last-child) {
+  margin: 0 0 10px 0;
 }
 
-.today-info>div .title {
-	font-weight: 700;
+.today-info > div .title {
+  font-weight: 700;
 }
 
-.today-info>div .value {
-	float: right;
+.today-info > div .value {
+  float: right;
 }
 
 .week-list {
-	display: flex;
-	flex-direction: row;
-	list-style-type: none;
-	padding: 0;
-	margin: 10px 35px;
-	-webkit-box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
-	box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
-	border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 35px;
+  -webkit-box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 }
 
-.week-list>li {
-	display: flex;
-	flex-direction: column;
-	width: 110px;
-	align-items: center;
-	margin: 2%;
-	padding: 15px;
-	cursor: pointer;
-	-webkit-transition: 200ms ease;
-	-o-transition: 200ms ease;
-	transition: 200ms ease;
-	border-radius: 10px;
+.week-list > li {
+  display: flex;
+  flex-direction: column;
+  width: 110px;
+  align-items: center;
+  margin: 2%;
+  padding: 15px;
+  cursor: pointer;
+  -webkit-transition: 200ms ease;
+  -o-transition: 200ms ease;
+  transition: 200ms ease;
+  border-radius: 10px;
 }
 
-
-.week-list>li:hover {
-	-webkit-transform: scale(1.1);
-	-ms-transform: scale(1.1);
-	transform: scale(1.1);
-	background: #fff;
-	color: #222831;
-	-webkit-box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
-	box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
+.week-list > li:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  background: #fff;
+  color: #222831;
+  -webkit-box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
 }
 
-.week-list>li.active {
-	background: #fff;
-	color: #222831;
-	border-radius: 10px;
+.week-list > li.active {
+  background: #fff;
+  color: #222831;
+  border-radius: 10px;
 }
 
-.week-list>li .day-name {
-	display: block;
-	margin: 10px 0 0 0;
-	text-align: center;
+.week-list > li .day-name {
+  display: block;
+  margin: 10px 0 0 0;
+  text-align: center;
 }
 
-.week-list>li .day-icon {
-	display: block;
-	height: 30px;
-	width: auto;
-	margin: 0 auto;
+.week-list > li .day-icon {
+  display: block;
+  height: 30px;
+  width: auto;
+  margin: 0 auto;
 }
 
-.week-list>li .day-temp {
-	margin: 10px 0 0 0;
-	font-weight: 700;
+.week-list > li .day-temp {
+  margin: 10px 0 0 0;
+  font-weight: 700;
 }
 
 .location-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .location-button {
-	outline: none;
-	border: none;
-	border-radius: 25px;
-	padding: 15px;
-	text-align: center;
-	font-family: "Montserrat", sans-serif;
-	background-color: rgb(32, 12, 146, 0.6);
-	color: #ffffff;
-	font-weight: 700;
-	font-size: large;
-	cursor: pointer;
-	width: 65%;
-	transition: 0.4s;
-
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  padding: 15px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(32, 12, 146, 0.6);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: large;
+  cursor: pointer;
+  width: 65%;
+  transition: 0.4s;
 }
-
 
 .hour-list {
-	list-style-type: none;
-	padding: 0;
-	margin: 10px 35px;
-	-webkit-box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
-	box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
-	border-radius: 10px;
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 35px;
+  -webkit-box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
 }
 
-.hour-list>li {
-	float: left;
-	padding: 15px;
-	cursor: pointer;
-	-webkit-transition: 200ms ease;
-	-o-transition: 200ms ease;
-	transition: 200ms ease;
-	border-radius: 10px;
+.hour-list > li {
+  float: left;
+  padding: 15px;
+  cursor: pointer;
+  -webkit-transition: 200ms ease;
+  -o-transition: 200ms ease;
+  transition: 200ms ease;
+  border-radius: 10px;
 }
 
-.hour-list>li:hover {
-	-webkit-transform: scale(1.1);
-	-ms-transform: scale(1.1);
-	transform: scale(1.1);
-	background: rgb(236, 230, 230, 0.4);
-	color: #222831;
-	-webkit-box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
-	box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
+.hour-list > li:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  background: rgb(236, 230, 230, 0.4);
+  color: #222831;
+  -webkit-box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
 }
 
 .hourly {
-	display: flex;
-	flex-direction: row;
-	margin-top: 1%;
-	justify-content: center;
-	width: 80%;
-	border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1%;
+  justify-content: center;
+  width: 80%;
+  border-radius: 20px;
 }
 
 .hour-list {
-	display: flex;
-	justify-content: left;
-	overflow-x: auto;
-	overflow-y: hidden;
-	white-space: nowrap;
-	width: 700px;
-	border-radius: 20px;
-	-ms-overflow-style: none;
-
+  display: flex;
+  justify-content: left;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 700px;
+  border-radius: 20px;
+  -ms-overflow-style: none;
 }
 
 .hour-list::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
 
 .flex-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-	padding: 5%;
-	margin: 0.5%;
-	border-radius: 20px;
-	color: white;
-	font-weight: 700;
-	cursor: grab;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 5%;
+  margin: 0.5%;
+  border-radius: 20px;
+  color: white;
+  font-weight: 700;
+  cursor: grab;
 }
 
 .hline {
-	width: 700px;
-	background-color: rgb(216, 211, 211, 0.4);
-	height: 5px;
-	border-radius: 25px;
-	margin-top: 1%;
-
+  width: 700px;
+  background-color: rgb(216, 211, 211, 0.4);
+  height: 5px;
+  border-radius: 25px;
+  margin-top: 1%;
 }
 
 .hline:not(:last-of-type) {
-	margin-top: 1%;
+  margin-top: 1%;
 }
 
 .citynames {
-	padding: 4px;
-	width: 200px;
-	height: 200px;
-	overflow-x: hidden;
-	text-align: center;
-	z-index: 1;
-	background-color: rgb(238, 241, 238, 0.4);
-	border-radius: 20px;
-	padding: 2px;
+  padding: 4px;
+  width: 200px;
+  height: 200px;
+  overflow-x: hidden;
+  text-align: center;
+  z-index: 1;
+  background-color: rgb(238, 241, 238, 0.4);
+  border-radius: 20px;
+  padding: 2px;
 }
 
 .citynames::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
 
 .cityDisplay {
-
-	color: white;
-	font-weight: 700;
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  font-weight: 700;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 @media screen and (max-width: 620px) {
@@ -326,25 +269,35 @@ body {
 	.citynames {
 		height: 35px;
 	}
+
+	body {
+		height: 100vh;
+	}
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 840px) {
 	.container {
 		flex-direction: column;
-		height: 100%;
-		width: 100%;
+		align-self: center;
+		margin-left: 8.5rem;
 	}
 
+	body {
+		height: 100vh;
+	}
 	.weather-side {
 		display: flex;
-		width: 100%;
+	}
+
+	.hourly{
+		width: 90%;
+		margin-left: 5rem;
 	}
 
 	.weather-container {
 		font-size: 70%;
 		width: 100%;
 		margin-top: 1%;
-		margin-left: 50%;
 	}
 
 	.info-side {
@@ -355,10 +308,6 @@ body {
 	.week-list>li {
 		margin: 1%;
 		padding: 2%;
-	}
-
-	body {
-		background-size: auto;
 	}
 
 	.citynames {

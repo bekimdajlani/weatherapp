@@ -177,12 +177,10 @@ async function GetWeather(latitude, longitude) {
   // changing the background images according to daylight time
   if ((dayTime > sunset[0]) || (dayTime < sunRise[0])) {
     document.getElementById('bgimg').style.backgroundImage = nightSky;
-    document.querySelector('body').style.backgroundImage = nightStars;
-    document.querySelector('body').style.backgroundSize = 'cover';
+    document.getElementsByTagName("body")[0].style.backgroundImage = nightStars;
   } else {
-    document.querySelector('body').style.backgroundImage = dayBlueClouds;
+    document.getElementsByTagName("body")[0].style.backgroundImage = dayBlueClouds;
     document.getElementById('bgimg').style.backgroundImage = dayOrangeClouds;
-    document.querySelector('body').style.backgroundSize = 'cover';
   }
   //get hh:mm from sunrise & sunset 
   let morning = daily.sunrise[0].substring(11, 16);
