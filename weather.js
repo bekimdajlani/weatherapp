@@ -1,6 +1,8 @@
 let city = JSON.parse(localStorage.getItem('cities'));
 let latitude, longitude, mainUrl;
 let firstTime = true;
+var screenHeight = window.screen.height;
+var screenWidth = window.screen.width;
 // function to change city by longitude and latitude
 function changeCity(latitude, longitude) {
   firstTime = false;
@@ -178,9 +180,14 @@ async function GetWeather(latitude, longitude) {
   if ((dayTime > sunset[0]) || (dayTime < sunRise[0])) {
     document.getElementById('bgimg').style.backgroundImage = nightSky;
     document.getElementsByTagName("body")[0].style.backgroundImage = nightStars;
+    document.getElementsByTagName('body')[0].style.width = screenWidth;
+    document.getElementsByTagName('body')[0].style.height = screenHeight;
+    document.getElementsByTagName('body')[0].style.backgroundSize=('cover');
   } else {
     document.getElementsByTagName("body")[0].style.backgroundImage = dayBlueClouds;
     document.getElementById('bgimg').style.backgroundImage = dayOrangeClouds;
+    document.getElementsByTagName('body')[0].style.width = screenWidth;
+    document.getElementsByTagName('body')[0].style.height = screenHeight;
   }
   //get hh:mm from sunrise & sunset 
   let morning = daily.sunrise[0].substring(11, 16);

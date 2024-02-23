@@ -278,16 +278,19 @@ body {
 @media screen and (max-width: 840px) {
 	.container {
 		flex-direction: column;
-		align-self: center;
-		margin-left: 8.5rem;
+    width: 26rem;
+		/* margin-left: 8.5rem; */
 	}
 
-	body {
-		height: 100vh;
-	}
 	.weather-side {
 		display: flex;
 	}
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
 
 	.hourly{
 		width: 90%;
