@@ -1,19 +1,39 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap");
 
+.rainyday {
+  background-image: url('./weatherAppPictures/rainglass.jpg');
+}
+
+.nightStars {
+  background-image: url('./weatherAppPictures/night-sky-stars.jpg');
+}
+
+.nightSky {
+  background-image: url('./weatherAppPictures/night-sky.jpg');
+}
+
+.dayBlueClouds {
+  background-image: url('./weatherAppPictures/day-clear-sky.jpg');
+}
+
+.dayOrangeCLouds {
+  background-image: url('./weatherAppPictures/Clouds-background.jpg');
+}
+
 .value {
   font-weight: 600;
   color: rgb(160, 156, 156);
 }
 
 body {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   font-family: "Montserrat", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition:ease-in 1s;
 }
 
 .container {
@@ -22,6 +42,7 @@ body {
   color: #ffffff;
   display: flex;
   flex-direction: row;
+  transition: ease-in;
 }
 
 .weather-side {
@@ -98,9 +119,9 @@ body {
   margin: 2%;
   padding: 15px;
   cursor: pointer;
-  -webkit-transition: 200ms ease;
-  -o-transition: 200ms ease;
-  transition: 200ms ease;
+  -webkit-transition: 200ms ease-in;
+  -o-transition: 200ms ease-in;
+  transition: 200ms ease-in;
   border-radius: 10px;
 }
 
@@ -173,9 +194,9 @@ body {
   float: left;
   padding: 15px;
   cursor: pointer;
-  -webkit-transition: 200ms ease;
-  -o-transition: 200ms ease;
-  transition: 200ms ease;
+  -webkit-transition: 200ms ease-in;
+  -o-transition: 200ms ease-in;
+  transition: 200ms ease-in;
   border-radius: 10px;
 }
 
@@ -278,8 +299,7 @@ body {
 @media screen and (max-width: 840px) {
 	.container {
 		flex-direction: column;
-    width: 26rem;
-		/* margin-left: 8.5rem; */
+    width: 100%;
 	}
 
 	.weather-side {

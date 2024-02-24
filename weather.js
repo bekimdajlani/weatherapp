@@ -1,8 +1,6 @@
 let city = JSON.parse(localStorage.getItem('cities'));
 let latitude, longitude, mainUrl;
 let firstTime = true;
-var screenHeight = window.screen.height;
-var screenWidth = window.screen.width;
 // function to change city by longitude and latitude
 function changeCity(latitude, longitude) {
   firstTime = false;
@@ -165,7 +163,7 @@ async function GetWeather(latitude, longitude) {
   // take the sunset and sunrise data from api
   let sunDown = daily.sunset;
   let sunUp = daily.sunrise;
-  // convert everything in minutes (in need typeof number for comarison)
+  // convert everything in minutes (in need typeof number for comparison)
   sunDown.forEach(element => {
     let e = new Date(element).getHours() * 60 + new Date(element).getMinutes()
     sunset.push(e);
@@ -176,18 +174,36 @@ async function GetWeather(latitude, longitude) {
   });
   // get HH:MM in minutes to compare with sunrise and sunset
   let dayTime = currenTime.getHours() * 60 + currenTime.getMinutes();
+  // get elements to insert images according to conditions
+  const bodyId = document.getElementById("bodyId");
+  const bgimg = document.getElementById('bgimg');
+  const keyframes = [
+    { opacity: 0 }, // initial state
+    { opacity: 0.5 }, // 50% state
+    { opacity: 1 } // final state
+];
+
+// Define animation options
+const options = {
+    duration: 500, // 1 second
+    easing: 'ease-in-out', // easing function
+    fill: 'forwards' // keep the final state after the animation
+};
   // changing the background images according to daylight time
   if ((dayTime > sunset[0]) || (dayTime < sunRise[0])) {
-    document.getElementById('bgimg').style.backgroundImage = nightSky;
-    document.getElementsByTagName("body")[0].style.backgroundImage = nightStars;
-    document.getElementsByTagName('body')[0].style.width = screenWidth;
-    document.getElementsByTagName('body')[0].style.height = screenHeight;
-    document.getElementsByTagName('body')[0].style.backgroundSize=('cover');
+    bodyId.classList.remove('dayBlueClouds');
+    bodyId.classList.add('nightStars');
+    bodyId.animate(keyframes,options);
+    bgimg.classList.remove('dayOrangeCLouds');
+    bgimg.classList.add('nightSky');
+    bgimg.animate(keyframes,options);
   } else {
-    document.getElementsByTagName("body")[0].style.backgroundImage = dayBlueClouds;
-    document.getElementById('bgimg').style.backgroundImage = dayOrangeClouds;
-    document.getElementsByTagName('body')[0].style.width = screenWidth;
-    document.getElementsByTagName('body')[0].style.height = screenHeight;
+    bodyId.classList.remove('nightStars');
+    bodyId.classList.add('dayBlueClouds');
+    bodyId.animate(keyframes,options);
+    bgimg.classList.remove('nightSky');
+    bgimg.classList.add('dayOrangeCLouds');
+    bgimg.animate(keyframes,options);
   }
   //get hh:mm from sunrise & sunset 
   let morning = daily.sunrise[0].substring(11, 16);
@@ -244,7 +260,9 @@ async function GetWeather(latitude, longitude) {
       document.getElementById('day3Prc').innerHTML = (`${days[3].prc[i]} ${hourly_units.precipitation}`)
       document.getElementById('day4Prc').innerHTML = (`${days[4].prc[i]} ${hourly_units.precipitation}`)
       if (days[0].prc[i] > 0) {
-        document.getElementById('bgimg').style.backgroundImage = rainyday;
+        document.getElementById('bgimg').classList.add('rainyday');
+      }else {
+        document.getElementById('bgimg').classList.remove('rainyday');
       }
       break;
     }
