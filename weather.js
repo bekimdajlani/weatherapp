@@ -43,8 +43,6 @@ searchedCity.addEventListener("input", () => {
       changeCity(latitude, longitude);
       RemoveElements();
       GetWeather(latitude, longitude);
-      cityDisplay.textContent = "";
-      searchedCity.placeholder = "Change Location";
       return;
     }
   }
@@ -328,6 +326,7 @@ async function GetWeather(latitude, longitude) {
       break;
     }
   }
+  button.placeholder = 'Change Location';
 }
 GetWeather(latitude, longitude);
 const slider = document.querySelector(".hour-list");
