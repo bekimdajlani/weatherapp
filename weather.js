@@ -319,9 +319,11 @@ async function GetWeather(latitude, longitude) {
         "day4Prc"
       ).innerHTML = `${days[4].prc[i]} ${hourly_units.precipitation}`;
       if (days[0].prc[i] > 0) {
-        document.getElementById("bgimg").classList.add("rainyday");
+       bgimg.classList.remove("dayOrangeCLouds");
+       bgimg.classList.remove("nightSky");
+        bgimg.classList.add("rainyday");
       } else {
-        document.getElementById("bgimg").classList.remove("rainyday");
+        bgimg.classList.remove("rainyday");
       }
       break;
     }
